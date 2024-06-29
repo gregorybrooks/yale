@@ -55,3 +55,4 @@ WORKDIR /home/greg
 ADD . .
 RUN sudo chown -R greg .
 RUN python3 -m venv .venv
+RUN flask --app yale init-db
