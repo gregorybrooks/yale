@@ -28,10 +28,11 @@ def search():
             flash('terms is required.')
 #        logit(f'Searching for: {terms}')
         print('Calling external_search')
-        search_results = pubmed.external_search(2, terms)
+        search_results = pubmed.external_search(100, terms)
         print('external_search returned this string:')
         print(search_results)
-        return render_template('yale/show_search_results.html', search_results=search_results)
+        return render_template('yale/show_search_results.html',
+                               terms=terms, numhits=len(search_results), search_results=search_results)
 
     # GET
     return render_template('yale/main.html')

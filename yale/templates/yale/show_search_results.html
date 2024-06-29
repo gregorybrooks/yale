@@ -5,12 +5,13 @@
 {% endblock %}
 
 {% block content %}
+<h1>{{ numhits }} hits for: {{ terms }}</h1><hr>
     {% for p in search_results%}
         <p></p><strong>PMID:</strong> {{ p.pmid }}
         <p></p><strong>TITLE:</strong> {{ p.title }}
         <p></p><strong>ABSTRACT:</strong> {{ p.abstract }}
         <p></p><strong>AUTHORS:</strong> {{ p.authorstring }}
-        <p></p><strong>DOCUMENT:</strong> <a href="{{ p.doc_url }}" target="_blank">Document</a>
+        <p></p><strong>DOCUMENT:</strong> <a href="{{ p.doc_url }}" target="_blank">Show Document</a>
         <hr>
      {% endfor %}
 {% endblock %}

@@ -4,9 +4,9 @@
 <nav>
   <ul>
     {% if g.user %}
-      <li><a href="{{ url_for('yale.landing_page') }}">Search</a>
-      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('yale.landing_page') }}">New Search</a>
       <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+      <li><span>User: {{ g.user['username'] }}</span>
     {% else %}
       <li><a href="{{ url_for('auth.login') }}">Log In</a>
     {% endif %}
