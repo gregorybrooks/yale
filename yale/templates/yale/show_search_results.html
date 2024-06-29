@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}PubMed Search Results{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% for p in search_results%}
+        <p></p><strong>PMID:</strong> {{ p.pmid }}
+        <hr>
+     {% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+[project]
+name = "yale"
+version = "1.0.2"
+description = "PubMed search."
+dependencies = [
+    "flask", "pyodbc"
+]
+
+[build-system]
+requires = ["flit_core<4", "pyodbc"]
+build-backend = "flit_core.buildapi"

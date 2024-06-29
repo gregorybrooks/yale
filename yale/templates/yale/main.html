@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Search PubMed{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <textarea name="terms" id="terms">{{ request.form['terms'] or terms }}</textarea>
+    <input type="submit" value="Search">
+  </form>
+{% endblock %}
