@@ -183,12 +183,6 @@ def external_search(num_entries, terms):
     data = json.load(f)
     return data
 
-    # j = ''
-    # p = subprocess.Popen('python', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    # for line in p.stdout.readlines():
-    #   j += line,
-    # retval = p.wait()
-    # return j
 
 def search(num_entries, terms):
     apikey = None
@@ -224,7 +218,6 @@ def search(num_entries, terms):
 if __name__ == '__main__':
     num_entries = sys.argv[1]
     terms = sys.argv[2]
-    print(f'In pubmed, {num_entries} {terms}')
     jstring = search(num_entries, terms)
     with open('/home/greg/pubmed.json', 'w', encoding='utf-8') as f:
         f.write(jstring)

@@ -30,6 +30,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq -y install default-jre python3.10
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq -y install docker.io
 
 RUN python3 -m pip install --upgrade pip
+RUN apt-get -qq -y remove python3-blinker
+RUN pip3 install flask
 RUN pip3 install entrezpy
 # Create user with sudo powers
 RUN useradd -m greg && \
@@ -52,3 +54,4 @@ RUN touch $HOME/.sudo_as_admin_successful
 WORKDIR /home/greg
 ADD . .
 RUN sudo chown -R greg .
+RUN python3 -m venv .venv
