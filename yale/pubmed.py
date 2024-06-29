@@ -21,6 +21,7 @@ class PubmedRecord:
         self.authors = []
         self.references = []
         self.doc_url = ''
+        self.authorstring = ''
 
 
 class PubmedResult(entrezpy.base.result.EutilsResult):
@@ -124,6 +125,7 @@ class PubmedAnalyzer(entrezpy.base.analyzer.EutilsAnalyzer):
                     isArticle = True
             else:
                 if elem.tag == 'PubmedArticle':
+                    medrec.authorstring = '; '.join(str(x['lname'] + "," + x['fname'].replace(' ', '')) for x in medrec.authors)
                     self.result.add_pubmed_record(medrec)
                     elem.clear()
                 if elem.tag == 'AuthorList':
